@@ -1,0 +1,64 @@
+INSERT INTO products
+(name, category, product_type, price, stock_quantity, requires_prescription, created_at, updated_at, description)
+VALUES
+    ('Paracetamol 500mg',
+     'Pain Relief',
+     'Tablet',
+     25.50,
+     100,
+     false,
+     CURRENT_TIMESTAMP,
+     CURRENT_TIMESTAMP,
+     'Paracetamol tablets for fever and mild pain.');
+
+INSERT INTO products
+(name, category, product_type, price, stock_quantity, requires_prescription, created_at, updated_at, description)
+VALUES
+    ('Amoxicillin 500mg',
+     'Antibiotics',
+     'Capsule',
+     120.00,
+     50,
+     false,
+     CURRENT_TIMESTAMP,
+     CURRENT_TIMESTAMP,
+     'Amoxicillin capsules.');
+
+INSERT INTO products
+(name, category, product_type, price, stock_quantity, requires_prescription, created_at, updated_at, description)
+VALUES
+    ('Cetirizine 10mg',
+     'Allergy',
+     'Tablet',
+     45.00,
+     75,
+     false,
+     CURRENT_TIMESTAMP,
+     CURRENT_TIMESTAMP,
+     'Antihistamine tablets for allergy symptoms.');
+
+INSERT INTO products
+(name, category, product_type, price, stock_quantity, requires_prescription, created_at, updated_at, description)
+VALUES
+    ('Omeprazole 20mg',
+     'Gastrointestinal',
+     'Capsule',
+     65.00,
+     80,
+     false,
+     CURRENT_TIMESTAMP,
+     CURRENT_TIMESTAMP,
+     'Medicine used to reduce stomach acid.');
+
+INSERT INTO products
+(name, category, product_type, price, stock_quantity, requires_prescription, created_at, updated_at, description)
+VALUES
+    ('Vitamin D3 1000 IU',
+     'Vitamins',
+     'Supplement',
+     150.00,
+     60,
+     false,
+     CURRENT_TIMESTAMP,
+     CURRENT_TIMESTAMP,
+     'Vitamin D3 supplement.');
