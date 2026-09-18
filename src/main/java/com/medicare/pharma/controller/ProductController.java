@@ -2,19 +2,19 @@ package com.medicare.pharma.controller;
 
 import com.medicare.pharma.entity.Product;
 import com.medicare.pharma.service.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- *
- * @author: medicare
- * @version: 1.0
- * Controller class for managing products.
- */
-
+@Tag(
+        name = "Products",
+        description = "APIs for managing pharmaceutical products"
+)
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -25,55 +25,59 @@ public class ProductController {
         this.productService = productService;
     }
 
-    // Get all products
+    @Operation(summary = "Get all products")
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
-        return ResponseEntity.ok(products);
+        return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    // Get product by ID
+    @Operation(summary = "Get product by ID")
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        Product product = productService.getProductById(id);
-        return ResponseEntity.ok(product);
+    public ResponseEntity<Product> getProductById(
+            @Parameter(description = "Product ID", example = "1")
+            @PathVariable Long id) {
+        return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    // Search products by name
+    @Operation(summary = "Search products by name")
     @GetMapping("/search")
-    public ResponseEntity<List<Product>> searchProducts(@RequestParam String name) {
-        List<Product> products = productService.searchProducts(name);
-        return ResponseEntity.ok(products);
+    public ResponseEntity<List<Product>> searchProducts(
+            @Parameter(description = "Product name", example = "Paracetamol")
+            @RequestParam String name) {
+        return ResponseEntity.ok(productService.searchProducts(name));
     }
 
-    // Get products by category
+    @Operation(summary = "Get products by category")
     @GetMapping("/category/{category}")
-    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
-        List<Product> products = productService.getProductsByCategory(category);
-        return ResponseEntity.ok(products);
+    public ResponseEntity<List<Product>> getProductsByCategory(
+            @Parameter(description = "Product category", example = "Pain Relief")
+            @PathVariable String category) {
+        return ResponseEntity.ok(productService.getProductsByCategory(category));
     }
 
-    // Create a new product
+    @Operation(summary = "Create a new product")
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        Product savedProduct = productService.createProduct(product);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(savedProduct);
+                .body(productService.createProduct(product));
     }
 
-    // Update an existing product
+    @Operation(summary = "Update an existing product")
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        Product updatedProduct = productService.updateProduct(id, product);
-        return ResponseEntity.ok(updatedProduct);
+    public ResponseEntity<Product> updateProduct(
+            @Parameter(description = "Product ID", example = "1")
+            @PathVariable Long id,
+            @RequestBody Product product) {
+        return ResponseEntity.ok(productService.updateProduct(id, product));
     }
 
-    // Delete product
+    @Operation(summary = "Delete a product")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProduct(
+            @Parameter(description = "Product ID", example = "1")
+            @PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
 }
-
