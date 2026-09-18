@@ -1,11 +1,11 @@
-package org.framework;
+package org.pharma.medicines;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebsiteApplication {
+public class PharmaApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WebsiteApplication.class, args);
+        SpringApplication.run(PharmaApplication.class, args);
     }
 }

@@ -1,4 +1,4 @@
-package org.framework.controller;
+package org.pharma.medicines.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

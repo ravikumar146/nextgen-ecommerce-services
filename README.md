@@ -24,7 +24,7 @@ project-name/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/example/project/
+│   │   │   └── com/pharma/medicines/
 │   │   │       ├── controller/
 │   │   │       ├── service/
 │   │   │       ├── repository/
