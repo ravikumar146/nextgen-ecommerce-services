@@ -6,243 +6,441 @@ A Java-based Spring Boot application built using Gradle and integrated with Goog
 
 This project is a Spring Boot application developed using Java and Gradle. It is connected to Google Cloud Platform for cloud infrastructure, services, deployment, monitoring, and application management.
 
+The project uses the Gradle Wrapper, so Gradle does not need to be installed separately on the development machine.
+
 ## Technology Stack
 
 - Java 17+
 - Spring Boot
 - Gradle
 - Google Cloud Platform (GCP)
-- Google Cloud SDK
+- Google Cloud CLI
 - Git
+
+## Project Structure
+
+```text
+project-name/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/project/
+│   │   │       ├── controller/
+│   │   │       ├── service/
+│   │   │       ├── repository/
+│   │   │       ├── model/
+│   │   │       └── Application.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── application.yml
+│   └── test/
+│       └── java/
+├── build.gradle
+├── settings.gradle
+├── gradle/
+│   └── wrapper/
+├── gradlew
+├── gradlew.bat
+├── .gitignore
+└── README.md
+```
+
+> The actual project structure may vary depending on the application's requirements.
+
+---
 
 ## Prerequisites
 
 Before running the application, make sure the following are installed:
-Java 17 or later
-GitGoogle Cloud CLI
-A Google Cloud account
 
-Access to the required Google Cloud project
+- Java 17 or later
+- Git
+- Google Cloud CLI
+- A Google Cloud account
+- Access to the required Google Cloud project
 
-Gradle does not need to be installed separately if the project contains the Gradle Wrapper.
+Gradle does not need to be installed separately because this project uses the Gradle Wrapper.
+
+### Verify the Installation
 
 Check the installed versions:
+
+```bash
 java -version
 git --version
 gcloud --version
+```
+
+---
 
 ## Google Cloud Configuration
-This application can be connected to a Google Cloud project for accessing Google Cloud services and deploying the application.
 
-Authenticate with Google Cloud
+This application can connect to a Google Cloud project to access Google Cloud services and deploy the application.
+
+### Authenticate with Google Cloud
+
 Run:
 
+```bash
 gcloud auth login
+```
 
 For local application development, configure Application Default Credentials:
 
+```bash
 gcloud auth application-default login
+```
 
-## Configure the Google Cloud Project
+### Configure the Google Cloud Project
+
 Set the active Google Cloud project:
 
+```bash
 gcloud config set project YOUR_PROJECT_ID
+```
 
 Verify the configured project:
 
+```bash
 gcloud config get-value project
+```
 
-Replace YOUR_PROJECT_ID with your actual Google Cloud Project ID.
+Replace `YOUR_PROJECT_ID` with your actual Google Cloud Project ID.
+
+---
 
 ## Application Configuration
-Configure the application using application.properties or application.yml.
 
-Example:
+Application configuration can be maintained in:
+
+```text
+src/main/resources/application.properties
+```
+
+or:
+
+```text
+src/main/resources/application.yml
+```
+
+### Example `application.properties`
+
+```properties
 spring.application.name=spring-gcp-project
+
 server.port=8080
+
 spring.cloud.gcp.project-id=${GOOGLE_CLOUD_PROJECT_ID}
-Set the Google Cloud project ID as an environment variable.
+```
 
-Linux / macOS
+Set the Google Cloud project ID using an environment variable.
+
+### Linux / macOS
+
+```bash
 export GOOGLE_CLOUD_PROJECT_ID=YOUR_PROJECT_ID
+```
 
-Windows PowerShell
+### Windows PowerShell
+
+```powershell
 $env:GOOGLE_CLOUD_PROJECT_ID="YOUR_PROJECT_ID"
+```
 
-Google Cloud Credentials
+---
+
+## Google Cloud Credentials
+
 Do not commit Google Cloud credentials, service account keys, passwords, API keys, or other sensitive information to the Git repository.
 
 For local development, use:
 
+```bash
 gcloud auth application-default login
+```
 
-For production deployments, use Google Cloud service identities and IAM permissions instead of storing credentials in the source code.
+For production deployments, use Google Cloud service identities and appropriate IAM permissions instead of storing credentials directly in the source code.
+
+---
 
 ## Gradle Wrapper
+
 This project uses the Gradle Wrapper.
 
 The Gradle Wrapper allows the project to use the Gradle version defined by the project without requiring Gradle to be installed globally.
 
-Linux / macOS
+### Linux / macOS
+
 Make sure the Gradle Wrapper is executable:
 
+```bash
 chmod +x ./gradlew
+```
 
-Then verify Gradle:
+Check the Gradle version:
 
+```bash
 ./gradlew --version
+```
 
-Windows
-Use:
+### Windows
 
+Check the Gradle version:
+
+```powershell
 .\gradlew.bat --version
+```
 
-Build the Application
-Linux / macOS
+---
+
+## Build the Application
+
+### Linux / macOS
+
+```bash
 ./gradlew clean build
+```
 
-Windows
+### Windows
+
+```powershell
 .\gradlew.bat clean build
+```
 
-To build without running tests:
+### Build Without Running Tests
 
-Linux / macOS
+Linux / macOS:
+
+```bash
 ./gradlew clean build -x test
+```
 
-Windows
+Windows:
+
+```powershell
 .\gradlew.bat clean build -x test
+```
 
-Run the Application
-Linux / macOS
+After a successful build, the generated JAR file will normally be available under:
+
+```text
+build/libs/
+```
+
+---
+
+## Run the Application
+
+### Linux / macOS
+
+```bash
 ./gradlew bootRun
+```
 
-Windows
+### Windows
+
+```powershell
 .\gradlew.bat bootRun
+```
 
 By default, the application will be available at:
 
+```text
 http://localhost:8080
+```
 
-Run the JAR File
+---
+
+## Run the JAR File
+
 Build the application:
 
+```bash
 ./gradlew clean build
+```
 
 The generated JAR file will normally be located inside:
 
+```text
 build/libs/
+```
 
-Run the JAR:
+Run the JAR file:
 
+```bash
 java -jar build/libs/application-name.jar
+```
 
-Replace application-name.jar with the actual JAR file name.
+Replace `application-name.jar` with the actual generated JAR file name.
 
-Running Tests
+---
+
+## Running Tests
+
 Run all tests:
 
-Linux / macOS
-./gradlew test
+### Linux / macOS
 
-Windows
+```bash
+./gradlew test
+```
+
+### Windows
+
+```powershell
 .\gradlew.bat test
+```
 
 Run a specific test:
 
+```bash
 ./gradlew test --tests "com.example.project.ExampleTest"
+```
 
-Clean the Project
-Linux / macOS
+---
+
+## Clean the Project
+
+### Linux / macOS
+
+```bash
 ./gradlew clean
+```
 
-Windows
+### Windows
+
+```powershell
 .\gradlew.bat clean
+```
+
+---
 
 ## Google Cloud Services
+
 Depending on the requirements of the application, the project can integrate with Google Cloud services such as:
 
-Cloud Run
-Cloud Storage
-Cloud SQL
-Firestore
-Pub/Sub
-Secret Manager
-Artifact Registry
-Cloud Logging
-Cloud Monitoring
+- Cloud Run
+- Cloud Storage
+- Cloud SQL
+- Firestore
+- Pub/Sub
+- Secret Manager
+- Artifact Registry
+- Cloud Logging
+- Cloud Monitoring
 
-Only enable and configure the Google Cloud services required by the application.
+Only enable and configure the Google Cloud services that are required by the application.
 
-Deploying to Google Cloud
+---
+
+## Deploying to Google Cloud
+
 The application can be deployed to Google Cloud using services such as Cloud Run.
 
-Build the Application
+### Build the Application
+
+```bash
 ./gradlew clean build
+```
 
-Build a Docker Image
-If the project contains a Dockerfile, build the Docker image:
+### Build a Docker Image
 
+If the project contains a `Dockerfile`, build the Docker image:
+
+```bash
 docker build -t spring-gcp-project .
+```
 
-Tag the Docker Image
+### Tag the Docker Image
+
+```bash
 docker tag spring-gcp-project \
 REGION-docker.pkg.dev/YOUR_PROJECT_ID/YOUR_REPOSITORY/spring-gcp-project:latest
+```
 
-Push the Image to Artifact Registry
+### Push the Image to Artifact Registry
+
+```bash
 docker push \
 REGION-docker.pkg.dev/YOUR_PROJECT_ID/YOUR_REPOSITORY/spring-gcp-project:latest
+```
 
-Deploy to Cloud Run
+### Deploy to Cloud Run
+
+```bash
 gcloud run deploy spring-gcp-project \
---image REGION-docker.pkg.dev/YOUR_PROJECT_ID/YOUR_REPOSITORY/spring-gcp-project:latest \
---region YOUR_REGION \
---platform managed
+  --image REGION-docker.pkg.dev/YOUR_PROJECT_ID/YOUR_REPOSITORY/spring-gcp-project:latest \
+  --region YOUR_REGION \
+  --platform managed
+```
 
-Replace:
+Replace the following values with your actual Google Cloud configuration:
 
+```text
 YOUR_PROJECT_ID
 YOUR_REPOSITORY
 YOUR_REGION
+```
 
-with your actual Google Cloud configuration.
+---
 
-IAM Permissions
+## IAM Permissions
+
 The application should use the minimum Google Cloud IAM permissions required for its functionality.
 
 Avoid granting broad permissions such as:
 
+```text
 Owner
 Editor
+```
 
 unless they are specifically required.
 
-Use service-specific IAM roles for resources such as:
+Prefer service-specific IAM roles for resources such as:
 
-Cloud Run
-Cloud Storage
-Cloud SQL
-Secret Manager
-Pub/Sub
-Firestore
-Security
+- Cloud Run
+- Cloud Storage
+- Cloud SQL
+- Secret Manager
+- Pub/Sub
+- Firestore
+
+---
+
+## Security
+
 Never commit sensitive information to Git.
 
 Do not commit files containing:
 
+```text
 *.key
 *.pem
 *.p12
 *.env
 *credentials*.json
 *service-account*.json
+```
 
-Do not store passwords, API keys, tokens, or service account credentials directly in the source code.
+Do not store the following directly in the source code:
+
+- Passwords
+- API keys
+- Access tokens
+- Service account credentials
+- Database credentials
+- Other sensitive configuration
 
 Use environment variables or Google Cloud Secret Manager for sensitive configuration.
 
-Recommended .gitignore
-Example .gitignore:
+---
 
+## Recommended `.gitignore`
+
+The project should contain a `.gitignore` file similar to the following:
+
+```gitignore
 # Gradle
 .gradle/
 build/
@@ -274,128 +472,192 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+```
 
-Environment Variables
-The application may use the following environment variables:
+---
 
+## Environment Variables
+
+The application may use the following environment variables depending on its configuration:
+
+```text
 GOOGLE_CLOUD_PROJECT_ID
 GOOGLE_APPLICATION_CREDENTIALS
 DATABASE_URL
 DATABASE_USERNAME
 DATABASE_PASSWORD
+```
 
-Only configure the variables required by the application.
+Only configure the environment variables required by the application.
 
-Never commit production credentials to the repository.
+> Never commit production credentials or sensitive environment variables to the repository.
 
-Google Cloud Project Commands
-Login
+---
+
+## Google Cloud Project Commands
+
+### Authenticate
+
+```bash
 gcloud auth login
+```
 
-Application Default Credentials
+### Configure Application Default Credentials
+
+```bash
 gcloud auth application-default login
+```
 
-List Google Cloud Projects
+### List Google Cloud Projects
+
+```bash
 gcloud projects list
+```
 
-Set the Active Project
+### Set the Active Project
+
+```bash
 gcloud config set project YOUR_PROJECT_ID
+```
 
-Check the Active Project
+### Check the Active Project
+
+```bash
 gcloud config get-value project
+```
 
-List Enabled APIs
+### List Enabled APIs
+
+```bash
 gcloud services list --enabled
+```
 
-Get Project Information
+### Get Project Information
+
+```bash
 gcloud projects describe YOUR_PROJECT_ID
+```
 
-Logging
+---
+
+## Logging
+
 For local development, application logs are displayed in the application console.
 
 When deployed to Google Cloud, logs can be viewed using Google Cloud Logging.
 
 Example:
 
+```bash
 gcloud logging read \
-"resource.type=cloud_run_revision" \
---limit=50
+  "resource.type=cloud_run_revision" \
+  --limit=50
+```
 
-Health Check
+---
+
+## Health Check
+
 If Spring Boot Actuator is enabled, the application health endpoint is:
 
+```text
 http://localhost:8080/actuator/health
+```
 
 Example response:
 
+```json
 {
   "status": "UP"
 }
+```
 
-Troubleshooting
-Check Java Version
+---
+
+## Troubleshooting
+
+### Check Java Version
+
+```bash
 java -version
+```
 
 Make sure Java 17 or later is installed.
 
-Check Gradle Version
+### Check Gradle Version
+
 Linux / macOS:
 
+```bash
 ./gradlew --version
+```
 
 Windows:
 
+```powershell
 .\gradlew.bat --version
+```
 
-Check Google Cloud Authentication
+### Check Google Cloud Authentication
+
+```bash
 gcloud auth list
+```
 
-Check Current Google Cloud Project
+### Check the Current Google Cloud Project
+
+```bash
 gcloud config get-value project
+```
 
-Re-authenticate
+### Re-authenticate with Google Cloud
+
+```bash
 gcloud auth login
+```
 
 For local application credentials:
 
+```bash
 gcloud auth application-default login
+```
 
-Check Enabled Google Cloud APIs
+### Check Enabled Google Cloud APIs
+
+```bash
 gcloud services list --enabled
+```
 
 If a required API is not enabled:
 
+```bash
 gcloud services enable API_NAME
+```
 
-Replace API_NAME with the required Google Cloud API.
+Replace `API_NAME` with the required Google Cloud API.
 
-Development Workflow
-Clone the repository.
+---
 
-Configure Java.
+## Development Workflow
 
-Authenticate with Google Cloud.
+The typical development workflow is:
 
-Configure the required Google Cloud project.
+1. Clone the repository.
+2. Configure Java.
+3. Authenticate with Google Cloud.
+4. Configure the required Google Cloud project.
+5. Configure environment variables.
+6. Build the application using Gradle.
+7. Run the application locally.
+8. Run the tests.
+9. Make the required changes.
+10. Commit the changes.
+11. Push the changes to the repository.
+12. Deploy the application to Google Cloud when required.
 
-Configure environment variables.
+### Example
 
-Build the application using Gradle.
-
-Run the application locally.
-
-Run the tests.
-
-Make the required changes.
-
-Commit the changes.
-
-Push the changes to the repository.
-
-Deploy the application to Google Cloud when required.
-
-Example:
-
+```bash
 git clone YOUR_REPOSITORY_URL
 
 cd YOUR_PROJECT_DIRECTORY
@@ -407,99 +669,161 @@ gcloud config set project YOUR_PROJECT_ID
 ./gradlew clean build
 
 ./gradlew bootRun
+```
 
-Git Workflow
-Create a feature branch:
+---
 
+## Git Workflow
+
+### Create a Feature Branch
+
+```bash
 git checkout -b feature/my-feature
+```
 
-Check the current changes:
+### Check Current Changes
 
+```bash
 git status
+```
 
-Add changes:
+### Add Changes
 
+```bash
 git add .
+```
 
-Commit changes:
+### Commit Changes
 
+```bash
 git commit -m "Add my feature"
+```
 
-Push the branch:
+### Push the Branch
 
+```bash
 git push origin feature/my-feature
+```
 
-Google Cloud Project Cleanup
+---
+
+## Google Cloud Project Cleanup
+
 Before deleting or shutting down a Google Cloud project, verify that the project is not being used by other applications, users, databases, storage buckets, or other cloud resources.
 
 If the project is no longer required, it can be shut down from the Google Cloud Console.
 
-Project deletion may affect all resources associated with the project.
+> Project deletion may affect all resources associated with the project. Make sure any required data and resources have been backed up before shutting down the project.
 
-License
+---
+
+## License
+
 Add the appropriate license for the project.
 
 Example:
 
+```text
 Copyright © 2026 Your Organization
+```
 
-Maintainer
-Your Name
+---
 
-GitHub:
+## Maintainer
 
+**Your Name**
+
+### GitHub
+
+```text
 YOUR_GITHUB_PROFILE
+```
 
-Email:
+### Email
 
+```text
 YOUR_EMAIL
+```
 
-Contributing
+---
+
+## Contributing
+
 Contributions are welcome.
 
 To contribute:
 
-Fork the repository.
-
-Create a feature branch.
-
-Make your changes.
-
-Run the tests.
-
-Commit your changes.
-
-Push the branch.
-
-Create a Pull Request.
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Run the tests.
+5. Commit your changes.
+6. Push the branch.
+7. Create a Pull Request.
 
 Before submitting changes, run:
 
+```bash
 ./gradlew clean test
+```
 
-## Project Structure
+---
+
+## Support
+
+For issues related to the application, create an issue in the project repository.
+
+For Google Cloud configuration issues, verify:
+
+```bash
+gcloud auth list
+gcloud config get-value project
+gcloud services list --enabled
+```
+
+---
+
+## Summary
+
+This project provides a Spring Boot Java application built with Gradle and integrated with Google Cloud Platform.
+
+The general architecture is:
 
 ```text
-project-name/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/example/project/
-│   │   │       ├── controller/
-│   │   │       ├── service/
-│   │   │       ├── repository/
-│   │   │       ├── model/
-│   │   │       └── Application.java
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       └── application.yml
-│   └── test/
-│       └── java/
-├── build.gradle
-├── settings.gradle
-├── gradle/
-│   └── wrapper/
-├── gradlew
-├── gradlew.bat
-├── .gitignore
-└── README.md
+Developer
+    |
+    v
+Spring Boot Application
+    |
+    v
+Gradle Build
+    |
+    v
+Google Cloud Platform
+    |
+    +-- Cloud Run
+    +-- Cloud Storage
+    +-- Cloud SQL
+    +-- Firestore
+    +-- Pub/Sub
+    +-- Secret Manager
+    +-- Artifact Registry
+    +-- Cloud Logging
+    +-- Cloud Monitoring
+```
+
+Update the following project-specific values before committing this README:
+
+- `YOUR_PROJECT_ID`
+- `YOUR_REPOSITORY`
+- `YOUR_REGION`
+- `YOUR_REPOSITORY_URL`
+- `YOUR_PROJECT_DIRECTORY`
+- `YOUR_GITHUB_PROFILE`
+- `YOUR_EMAIL`
+- `Your Name`
+- `Your Organization`
+
+---
+
+**Built with Java + Spring Boot + Gradle + Google Cloud Platform.**
