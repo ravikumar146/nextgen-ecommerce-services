@@ -15,34 +15,7 @@ This project is a Spring Boot application developed using Java and Gradle. It is
 - Google Cloud SDK
 - Git
 
-## Project Structure
-
-```text
-project-name/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/example/project/
-│   │   │       ├── controller/
-│   │   │       ├── service/
-│   │   │       ├── repository/
-│   │   │       ├── model/
-│   │   │       └── Application.java
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       └── application.yml
-│   └── test/
-│       └── java/
-├── build.gradle
-├── settings.gradle
-├── gradle/
-│   └── wrapper/
-├── gradlew
-├── gradlew.bat
-├── .gitignore
-└── README.md
-
-## Prerequisites
+- ## Prerequisites
 
 Before running the application, make sure the following are installed:
 Java 17 or later
@@ -80,3 +53,30 @@ Verify the configured project:
 gcloud config get-value project
 
 Replace YOUR_PROJECT_ID with your actual Google Cloud Project ID.
+
+## Project Structure
+
+```text
+project-name/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/project/
+│   │   │       ├── controller/
+│   │   │       ├── service/
+│   │   │       ├── repository/
+│   │   │       ├── model/
+│   │   │       └── Application.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── application.yml
+│   └── test/
+│       └── java/
+├── build.gradle
+├── settings.gradle
+├── gradle/
+│   └── wrapper/
+├── gradlew
+├── gradlew.bat
+├── .gitignore
+└── README.md
