@@ -41,15 +41,12 @@ project-name/
 ├── gradlew.bat
 ├── .gitignore
 └── README.md
-Prerequisites
+
+## Prerequisites
+
 Before running the application, make sure the following are installed:
-
 Java 17 or later
-
-Git
-
-Google Cloud CLI
-
+GitGoogle Cloud CLI
 A Google Cloud account
 
 Access to the required Google Cloud project
@@ -57,12 +54,11 @@ Access to the required Google Cloud project
 Gradle does not need to be installed separately if the project contains the Gradle Wrapper.
 
 Check the installed versions:
-
 java -version
 git --version
 gcloud --version
 
-Google Cloud Configuration
+## Google Cloud Configuration
 This application can be connected to a Google Cloud project for accessing Google Cloud services and deploying the application.
 
 Authenticate with Google Cloud
@@ -74,7 +70,7 @@ For local application development, configure Application Default Credentials:
 
 gcloud auth application-default login
 
-Configure the Google Cloud Project
+## Configure the Google Cloud Project
 Set the active Google Cloud project:
 
 gcloud config set project YOUR_PROJECT_ID
