@@ -72,3 +72,13 @@ INSERT INTO orders
 (id, order_date, total_amount, status, customer_id)
 VALUES
     (2, CURRENT_TIMESTAMP, 150.00, 'Completed', 10002);
+
+INSERT INTO customers
+(id, name, email, phone_number)
+VALUES
+    (10001, 'John Doe', 'john.doe@example.com', '123-456-7890');
+
+INSERT INTO customers
+(id, name, email, phone_number)
+VALUES
+    (10002, 'Jane Smith', 'jane.smith@example.com', '098-765-4321');
