@@ -62,3 +62,13 @@ VALUES
      CURRENT_TIMESTAMP,
      CURRENT_TIMESTAMP,
      'Vitamin D3 supplement.');
+
+INSERT INTO orders
+(id, order_date, total_amount, status, customer_id)
+VALUES
+    (1, CURRENT_TIMESTAMP, 200.00, 'Pending', 10001);
+
+INSERT INTO orders
+(id, order_date, total_amount, status, customer_id)
+VALUES
+    (2, CURRENT_TIMESTAMP, 150.00, 'Completed', 10002);

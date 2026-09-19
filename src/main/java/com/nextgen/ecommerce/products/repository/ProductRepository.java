@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository interface for managing Product entities in the ecommerce application.
+ */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Tag(
         name = "Products",
-        description = "APIs for managing pharmaceutical products"
+        description = "APIs for managing ecommerce products"
 )
 @RestController
 @RequestMapping("/api/products")
