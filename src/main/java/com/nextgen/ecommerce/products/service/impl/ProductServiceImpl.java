@@ -1,8 +1,8 @@
-package com.medicare.pharma.service.impl;
+package com.nextgen.ecommerce.products.service.impl;
 
-import com.medicare.pharma.entity.Product;
-import com.medicare.pharma.repository.ProductRepository;
-import com.medicare.pharma.service.ProductService;
+import com.nextgen.ecommerce.products.entity.Product;
+import com.nextgen.ecommerce.products.repository.ProductRepository;
+import com.nextgen.ecommerce.products.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

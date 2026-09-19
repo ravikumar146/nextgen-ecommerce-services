@@ -1,4 +1,4 @@
-package com.medicare.pharma.entity;
+package com.nextgen.ecommerce.products.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;

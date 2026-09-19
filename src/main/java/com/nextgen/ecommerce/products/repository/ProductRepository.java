@@ -1,6 +1,6 @@
-package com.medicare.pharma.repository;
+package com.nextgen.ecommerce.products.repository;
 
-import com.medicare.pharma.entity.Product;
+import com.nextgen.ecommerce.products.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

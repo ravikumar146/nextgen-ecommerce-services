@@ -1,6 +1,6 @@
-package com.medicare.pharma.service;
+package com.nextgen.ecommerce.products.service;
 
-import com.medicare.pharma.entity.Product;
+import com.nextgen.ecommerce.products.entity.Product;
 
 import java.util.List;
 

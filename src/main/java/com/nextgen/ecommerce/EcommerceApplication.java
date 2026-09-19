@@ -1,4 +1,4 @@
-package com.medicare.pharma;
+package com.nextgen.ecommerce;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -13,8 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         )
 )
 @SpringBootApplication
-public class MedicareApplication {
+public class EcommerceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MedicareApplication.class, args);
+        SpringApplication.run(EcommerceApplication.class, args);
     }
 }

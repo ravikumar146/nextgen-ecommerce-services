@@ -1,7 +1,7 @@
-package com.medicare.pharma.controller;
+package com.nextgen.ecommerce.products.controller;
 
-import com.medicare.pharma.entity.Product;
-import com.medicare.pharma.service.ProductService;
+import com.nextgen.ecommerce.products.entity.Product;
+import com.nextgen.ecommerce.products.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
