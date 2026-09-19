@@ -3,6 +3,7 @@ package com.nextgen.ecommerce.products.service.impl;
 import com.nextgen.ecommerce.products.entity.Product;
 import com.nextgen.ecommerce.products.repository.ProductRepository;
 import com.nextgen.ecommerce.products.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,8 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductRepository productRepository;
-
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public List<Product> getAllProducts() {

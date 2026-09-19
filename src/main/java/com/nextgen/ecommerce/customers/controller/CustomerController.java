@@ -4,6 +4,7 @@ import com.nextgen.ecommerce.customers.entity.Customer;
 import com.nextgen.ecommerce.customers.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,11 +18,8 @@ import java.util.List;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
-    private final CustomerService customerService;
-
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+    @Autowired
+    private CustomerService customerService;
 
     @Operation(summary = "Get customer details by ID")
     @GetMapping("/{id}")

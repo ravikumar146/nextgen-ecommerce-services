@@ -3,6 +3,7 @@ package com.nextgen.ecommerce.customers.service.impl;
 import com.nextgen.ecommerce.customers.entity.Customer;
 import com.nextgen.ecommerce.customers.repository.CustomerRepository;
 import com.nextgen.ecommerce.customers.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,8 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
+    @Autowired
     private CustomerRepository customerRepository;
-
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     @Override
     public Customer getCustomerById(Long id) {

@@ -3,6 +3,7 @@ package com.nextgen.ecommerce.cart.service.impl;
 import com.nextgen.ecommerce.cart.entity.CartItem;
 import com.nextgen.ecommerce.cart.repository.CartRepository;
 import com.nextgen.ecommerce.cart.service.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,11 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CartServiceImpl  implements CartService {
 
-    private final CartRepository cartRepository;
-
-    public CartServiceImpl(CartRepository cartRepository) {
-        this.cartRepository = cartRepository;
-    }
+    @Autowired
+    private CartRepository cartRepository;
 
     @Override
     public CartItem getCartByCustomerId(Long customerId) {

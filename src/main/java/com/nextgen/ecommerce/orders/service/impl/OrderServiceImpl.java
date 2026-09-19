@@ -3,6 +3,7 @@ package com.nextgen.ecommerce.orders.service.impl;
 import com.nextgen.ecommerce.orders.entity.Order;
 import com.nextgen.ecommerce.orders.repository.OrderRepository;
 import com.nextgen.ecommerce.orders.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,8 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private final OrderRepository orderRepository;
-
-    public OrderServiceImpl(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
     public List<Order> getAllOrders() {
