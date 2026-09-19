@@ -9,8 +9,8 @@ env:
   PROJECT_ID: gcloud-website-deploy
   REGION: us-central1
   REPOSITORY: gcloud-docker-repo
-  IMAGE: pharma-backend-service
-  SERVICE: pharma-backend-service
+  IMAGE: ecommerce-backend-service
+  SERVICE: ecommerce-backend-service
 
 jobs:
   deploy:
