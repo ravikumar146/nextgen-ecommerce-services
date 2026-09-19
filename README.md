@@ -24,12 +24,28 @@ project-name/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/pharma/medicines/
-│   │   │       ├── controller/
-│   │   │       ├── service/
-│   │   │       ├── repository/
-│   │   │       ├── model/
-│   │   │       └── Application.java
+│   │   │   └── com/nextgen/ecommerce/
+|   |   |         ├── cart
+│   │   │           ├── controller/
+│   │   │           ├── service/
+│   │   │           ├── repository/
+│   │   │           ├── model/
+|   |   |         ├── orders
+│   │   │           ├── controller/
+│   │   │           ├── service/
+│   │   │           ├── repository/
+│   │   │           ├── model/
+|   |   |         ├── customers
+│   │   │           ├── controller/
+│   │   │           ├── service/
+│   │   │           ├── repository/
+│   │   │           ├── model/
+|   |   |         ├── products
+│   │   │           ├── controller/
+│   │   │           ├── service/
+│   │   │           ├── repository/
+│   │   │           ├── model/
+│   │   │       └── EcommerceApplication.java
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       └── application.yml
@@ -582,7 +598,7 @@ Example response:
 java -version
 ```
 
-Make sure Java 17 or later is installed.
+Make sure Java 21 or later is installed.
 
 ### Check Gradle Version
 
