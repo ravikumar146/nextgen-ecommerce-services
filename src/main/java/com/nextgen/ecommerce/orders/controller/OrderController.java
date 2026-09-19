@@ -25,7 +25,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Get all orders")
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<Order>> getAllOrders() {
         return ResponseEntity.ok(orderService.getAllOrders());
     }
@@ -37,7 +37,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Create a new order")
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         return ResponseEntity.status(201).body(orderService.createOrder(order));
     }

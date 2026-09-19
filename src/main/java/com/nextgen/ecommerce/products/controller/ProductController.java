@@ -26,7 +26,7 @@ public class ProductController {
     }
 
     @Operation(summary = "Get all products")
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
@@ -56,7 +56,7 @@ public class ProductController {
     }
 
     @Operation(summary = "Create a new product")
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)

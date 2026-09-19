@@ -82,3 +82,8 @@ INSERT INTO customers
 (id, name, email, phone_number)
 VALUES
     (10002, 'Jane Smith', 'jane.smith@example.com', '098-765-4321');
+
+INSERT INTO cart_items
+(id, customer_id, product_ids)
+VALUES
+    (101, 10001, ARRAY[1,2]);
