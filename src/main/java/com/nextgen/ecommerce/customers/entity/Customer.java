@@ -14,6 +14,10 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(
+        name = "Customer",
+        description = "Represents customer information in e-commerce system."
+)
 public class Customer {
 
     @Id
