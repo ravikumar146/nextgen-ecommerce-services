@@ -1,11 +1,15 @@
 package com.nextgen.ecommerce.customers.controller;
 
-import com.nextgen.ecommerce.customers.entity.Customer;
+import com.nextgen.ecommerce.customers.dto.AddressRequest;
+import com.nextgen.ecommerce.customers.dto.AddressResponse;
+import com.nextgen.ecommerce.customers.dto.CustomerCreateRequest;
+import com.nextgen.ecommerce.customers.dto.CustomerResponse;
 import com.nextgen.ecommerce.customers.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,21 +25,37 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @Operation(summary = "Get customer details by ID")
-    @GetMapping("/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
-        return ResponseEntity.ok(customerService.getCustomerById(id));
+    @Operation(summary = "Get customer details by Customer Number")
+    @GetMapping("/{customerNumber}")
+    public CustomerResponse getByCustomerNumber(@PathVariable String customerNumber) {
+        return customerService.getByCustomerNumber(customerNumber);
     }
 
     @Operation(summary = "Get all customers")
     @GetMapping("/list")
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        return ResponseEntity.ok(customerService.getAllCustomers());
+    public List<CustomerResponse> getAllCustomers() {
+        return customerService.getAll();
     }
 
     @Operation(summary = "Create a new customer")
     @PostMapping("/create")
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
-        return ResponseEntity.ok(customerService.createCustomer(customer));
+    @ResponseStatus(HttpStatus.CREATED)
+    public CustomerResponse createCustomer(@Valid @RequestBody
+                                           CustomerCreateRequest request) {
+        return customerService.create(request);
+    }
+
+    @Operation(summary = "Create a new address against customer")
+    @PostMapping("/{customerNumber}/addresses")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AddressResponse addAddress(@PathVariable String customerNumber,
+                                      @Valid @RequestBody AddressRequest request) {
+        return customerService.addAddress(customerNumber, request);
+    }
+
+    @Operation(summary = "Fetch customer address based on customer number")
+    @GetMapping("/{customerNumber}/addresses")
+    public List<AddressResponse> getAddresses(@PathVariable String customerNumber) {
+        return customerService.getAddresses(customerNumber);
     }
 }

@@ -1,6 +1,9 @@
 package com.nextgen.ecommerce.customers.service;
 
-import com.nextgen.ecommerce.customers.entity.Customer;
+import com.nextgen.ecommerce.customers.dto.AddressRequest;
+import com.nextgen.ecommerce.customers.dto.AddressResponse;
+import com.nextgen.ecommerce.customers.dto.CustomerCreateRequest;
+import com.nextgen.ecommerce.customers.dto.CustomerResponse;
 
 import java.util.List;
 
@@ -12,23 +15,28 @@ public interface CustomerService {
     /**
      * Retrieves a customer by their ID.
      *
-     * @param id the ID of the customer
+     * @param customerNumber the ID of the customer
      * @return the customer with the specified ID
      */
-    Customer getCustomerById(Long id);
+    CustomerResponse getByCustomerNumber(String customerNumber);
 
     /**
      * Retrieves all customers.
      *
      * @return a list of all customers
      */
-    List<Customer> getAllCustomers();
+
+    List<CustomerResponse> getAll();
 
     /**
      * Creates a new customer.
      *
-     * @param customer the customer to be created
+     * @param request the customer to be created
      * @return the created customer
      */
-    Customer createCustomer(Customer customer);
+    CustomerResponse create(CustomerCreateRequest request);
+
+    AddressResponse addAddress(String customerNumber, AddressRequest request);
+
+    List<AddressResponse> getAddresses(String customerNumber);
 }
