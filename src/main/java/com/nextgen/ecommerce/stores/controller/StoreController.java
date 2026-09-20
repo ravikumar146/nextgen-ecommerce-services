@@ -14,7 +14,7 @@ import java.util.List;
  * StoreController is responsible for handling HTTP requests related to stores.
  * It provides endpoints for managing store-related operations in the e-commerce system.
  */
-@Tag(name = "Stores", description = "Endpoints for managing stores")
+@Tag(name = "Stores", description = "APIs for managing stores")
 @RestController
 @RequestMapping("/api/stores")
 public class StoreController {

@@ -16,7 +16,7 @@ import java.util.List;
  * ReportController is responsible for handling HTTP requests related to reports.
  * It serves as the entry point for report-related operations in the application.
  */
-@Tag(name = "Reports", description = "Endpoints for managing reports")
+@Tag(name = "Reports", description = "APIs for managing reports")
 @RestController
 @RequestMapping("/api/reports")
 public class ReportController {

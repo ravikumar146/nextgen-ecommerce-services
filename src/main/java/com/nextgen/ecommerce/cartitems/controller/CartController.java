@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Tag(
         name = "Cart Items",
-        description = "Controller for managing cart-related operations"
+        description = "APIs for managing cart-related operations"
 )
 @RestController
 @RequestMapping("/api/cart")

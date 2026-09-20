@@ -14,7 +14,7 @@ import java.util.List;
  * CouponController is responsible for handling HTTP requests related to coupons.
  * It provides endpoints for creating, retrieving, updating, and deleting coupons.
  */
-@Tag(name = "Coupons", description = "Endpoints for managing coupons")
+@Tag(name = "Coupons", description = "APIs for managing coupons")
 @RestController
 @RequestMapping("/api/coupons")
 public class CouponController {
