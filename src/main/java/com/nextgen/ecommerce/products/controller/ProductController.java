@@ -48,7 +48,7 @@ public class ProductController {
     @Operation(summary = "Get products by category")
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Product>> getProductsByCategory(
-            @Parameter(description = "Product category", example = "Pain Relief")
+            @Parameter(description = "Product category", example = "Medicine")
             @PathVariable String category) {
         return ResponseEntity.ok(productService.getProductsByCategory(category));
     }

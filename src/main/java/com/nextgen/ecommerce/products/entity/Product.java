@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * Product entity representing a pharmaceutical product.
+ * Product entity representing a product.
  */
 @Entity
 @Table(name = "products")
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Builder
 @Schema(
         name = "Product",
-        description = "Represents a pharmaceutical product available in the pharmacy system."
+        description = "Represents a product available in the system."
 )
 public class Product {
 
