@@ -35,11 +35,6 @@ project-name/
 │   │   │           ├── service/
 │   │   │           ├── repository/
 │   │   │           ├── model/
-|   |   |         ├── customers
-│   │   │           ├── controller/
-│   │   │           ├── service/
-│   │   │           ├── repository/
-│   │   │           ├── model/
 |   |   |         ├── products
 │   │   │           ├── controller/
 │   │   │           ├── service/
@@ -48,10 +43,10 @@ project-name/
 │   │   │       └── EcommerceApplication.java
 │   │   └── resources/
 │   │       ├── application.properties
-│   │       └── application.yml
 │   └── test/
 │       └── java/
 ├── build.gradle
+├── Dockerfile
 ├── settings.gradle
 ├── gradle/
 │   └── wrapper/
