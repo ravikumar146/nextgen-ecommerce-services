@@ -9,8 +9,8 @@ env:
   PROJECT_ID: gcloud-website-deploy
   REGION: us-central1
   REPOSITORY: gcloud-docker-repo
-  IMAGE: ecommerce-backend-service
-  SERVICE: ecommerce-backend-service
+  IMAGE: nextgen-services
+  SERVICE: nextgen-services
 
 jobs:
   deploy:
